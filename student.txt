@@ -3,8 +3,13 @@ Major: IT
 GPA: 1.9
 On Probation: True
 
-Name: BEn
+Name: Ben
 Major: Art
 GPA: 3.0
+On Probation: False
+
+Name: Johh Park
+Major: Business
+GPA: 2.0
 On Probation: False
 
