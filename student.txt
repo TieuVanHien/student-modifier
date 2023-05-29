@@ -13,7 +13,11 @@ Major: Business
 GPA: 2.0
 On Probation: False
 
-Name: Hien
+Name: Van Hien
+Major: Art
+GPA: 3.1
+On Probation: False
+
 Major: IT
 GPA: 3.0
 On Probation: False
