@@ -1,4 +1,3 @@
-import sys
 from student import Student
 
 option = (
@@ -10,30 +9,22 @@ option = (
 
 def user_options():
     choice = 0
-    print(option)
-    try:
-        choice = int(input("Enter your choice of action: ")) 
-    except ValueError as err:
-        print(err)    
-    while choice != 4:    
+    
+    while choice != 4:
+        print(option)
+        try:
+            choice = int(input("Enter your choice of action: ")) 
+        except ValueError as err:
+            print(err)    
+            
         if choice == 1:
-            def student_modifier():
-                student = []
-                student = Student(input("Please enter the student name: "), input("Please enter the student major: "), input("Please enter the student GPA: "))
-                student_list = open("student.txt", "a")
-                student_list.write("Name: " + str(student.name) + "\n")
-                student_list.write("Major: " + str(student.major) + "\n")
-                student_list.write("GPA: " + str(student.gpa) + "\n")
-                student_list.write("On Probation: " + str(student.on_probation()) + "\n\n")
-                student_list.close()  
-            student_modifier()
-            sys.exit() 
-                                
+            student = []
+            student = Student(input("Please enter the student name: "), input("Please enter the student major: "), input("Please enter the student GPA: "))
+            student_list = open("student.txt", "a")
+            student_list.write("Name: " + str(student.name) + "\n")
+            student_list.write("Major: " + str(student.major) + "\n")
+            student_list.write("GPA: " + str(student.gpa) + "\n")
+            student_list.write("On Probation: " + str(student.on_probation()) + "\n\n")
+            student_list.close()
+
 user_options()
-
-
-    
-          
-
-    
-   

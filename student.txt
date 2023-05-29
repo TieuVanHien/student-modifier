@@ -13,3 +13,8 @@ Major: Business
 GPA: 2.0
 On Probation: False
 
+Name: Hien
+Major: IT
+GPA: 3.0
+On Probation: False
+
