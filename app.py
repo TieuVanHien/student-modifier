@@ -28,20 +28,23 @@ def user_options():
             student_list.close()
         if choice == 2:
             student_name = input("Please enter a student name that you want to change information: ")
-            with open("student.txt", "r") as file:
-                lines = file.readlines()
             update_line = []
             found_student = False
-            for line in lines:
-                if line.startswith("Name: " + student_name):
-                    student = Student(input("Please enter the updated student name: "), input("Please enter the updated student major: "), input("Please enter the updated student GPA: "))
-                    update_line.append("Name: " + str(student.name) + "\n")
-                    update_line.append("Major: " + str(student.major) + "\n")
-                    update_line.append("GPA: " + str(student.gpa) + "\n")
-                    update_line.append("On Probation: " + str(student.on_probation()) + "\n\n")
-                    found_student = True
-                else:
-                    update_line.append(line)
+            with open("student.txt", "r") as file:
+                for line in file:
+                    if line.startswith("Name: " + student_name):
+                        student = Student(input("Please enter the updated student name: "), input("Please enter the updated student major: "), input("Please enter the updated student GPA: "))
+                        update_line.append("Name: " + str(student.name) + "\n")
+                        update_line.append("Major: " + str(student.major) + "\n")
+                        update_line.append("GPA: " + str(student.gpa) + "\n")
+                        update_line.append("On Probation: " + str(student.on_probation()) + "\n\n")
+                        found_student = True
+                        # skip until the next blank line
+                        for line in file:
+                            if line == '\n':
+                                break
+                    else:
+                        update_line.append(line)
                    
             if found_student:
                 with open("student.txt", "w") as file:

@@ -1,10 +1,10 @@
-Name: John
-Major: IT
-GPA: 1.9
-On Probation: True
+Name: John Park
+Major: BA
+GPA: 3.0
+On Probation: False
 
-Name: Ben
-Major: Art
+Name: Bunnie
+Major: Host
 GPA: 3.0
 On Probation: False
 
