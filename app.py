@@ -1,4 +1,5 @@
 from student import Student
+from delete_student import delete_student
 
 option = (
     "1. Add Student\n"
@@ -52,6 +53,12 @@ def user_options():
                     print("Successfully updated")
                     file.close()
             else:
-                print("Failed to update or student not found.")                
+                print("Failed to update or student not found.")      
+                          
+        if choice == 3:
+            delete_student()
+        
+        if choice == 4:    
+            print("Thank you")
         
 user_options()

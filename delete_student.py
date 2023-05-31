@@ -1,18 +1,31 @@
-def  delete_student():
+import json
+
+def delete_student():
     student_name = input("Please enter a student name that you want to delete: ")
-    with open("student.txt", "r") as file:
-        lines = file.readlines()     
-    update_line = []
+    update_lines = []
     found_student = False
-    for line in lines:
-        if line.startswith("Name: " + student_name):
-            update_line.pop()
-            found_student = True
-        else:  
-            update_line.append(line)    
-        if found_student:
-            with open("student.txt", "w") as file:
-                file.writelines(update_line)
-                file.close()
-        else:
-            print("Failed to delete or student not found.")  
+    
+    with open("student.json", "r") as file:
+        data = json.load(file)
+        for student in data["student"]:
+            name = student["name"]
+            if name.startswith(student_name):
+                found_student = True
+            else:
+                update_lines.append(student)
+    
+    if found_student:
+        with open("student.json", "w") as file:
+            json.dump(update_lines, file)
+        print("Successfully deleted.")
+    else:
+        print("Failed to delete or student not found.")
+
+# def print_json():
+#     with open("student.json", "r") as file:
+#         data = json.load(file)
+#         for student in data["student"]:
+#             name = student["name"]
+#             print(name)
+    
+# print_json()    
