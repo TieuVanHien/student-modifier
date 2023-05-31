@@ -1,20 +1,34 @@
-[
-    {
-        "name": "Johnny",
-        "major": "Information Technology",
-        "gpa": 3.6,
-        "probation": false
-    },
-    {
-        "name": "Van Hien Tieu",
-        "major": "Information Technology",
-        "gpa": 3.0,
-        "probation": false
-    },
-    {
-        "name": "Bunnie",
-        "major": "Hospitality",
-        "gpa": 1.9,
-        "probation": true
-    }
-]
+{
+    "student": [
+        {
+            "name": "Johnny",
+            "major": "Information Technology",
+            "gpa": 3.6,
+            "probation": false
+        },
+        {
+            "name": "Van Hien Tieu",
+            "major": "Information Technology",
+            "gpa": 3.0,
+            "probation": false
+        },
+        {
+            "name": "Bunnie",
+            "major": "Art",
+            "gpa": "3.0",
+            "probation": false
+        },
+        {
+            "name": "Bob",
+            "major": "BA",
+            "gpa": "3.6",
+            "probation": false
+        },
+        {
+            "name": "Sue",
+            "major": "Finance",
+            "gpa": "3.2",
+            "probation": false
+        }
+    ]
+}

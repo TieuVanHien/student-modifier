@@ -21,4 +21,3 @@ def delete_student():
         print("Successfully deleted.")
     else:
         print("Student not found.")
-
