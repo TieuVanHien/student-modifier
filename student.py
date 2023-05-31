@@ -5,7 +5,7 @@ class Student:
         self.gpa = gpa
     
     def on_probation(self):
-        if self.gpa < "2.0":
+        if self.gpa < 2.0:
             return True
         else:
             return False    

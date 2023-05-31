@@ -1,6 +1,7 @@
 from student import Student
 from delete_function import delete_function
 from updated_student import Update_student
+import sys
 
 import json
 
@@ -22,8 +23,14 @@ def user_options():
         except ValueError as err:
             print(err)    
             
-        if choice == 1:     
-            new_student = Student(input("Please enter the student name: "), input("Please enter the student major: "), int(input("Please enter the student GPA: ")))
+        if choice == 1:
+            try:     
+                new_student = Student(input("Please enter the student name: "), input("Please enter the student major: "), float(input("Please enter the student GPA: ")))
+                if new_student.gpa < 0 or new_student.gpa > 4:
+                    print("Invalid GPA score. GPA will be from 0 to 4")
+                    sys.exit()
+            except ValueError as err:
+                print(err)
             with open("student.json", "r+") as file:
                 data = json.load(file)
                 students = data["student"]
@@ -44,7 +51,13 @@ def user_options():
                 students = data["student"]
                 for student in students:
                     if student["name"] == student_name:
-                        change_student = Student(input("Please enter the updated student name: "), input("Please enter the updated student major: "), int(input("Please enter the updated student GPA: ")))
+                        try:     
+                            change_student = Student(input("Please enter the updated student name: "), input("Please enter the updated student major: "), float(input("Please enter the updated student GPA: ")))
+                            if new_student.gpa < 0 or new_student.gpa > 4:
+                                print("Invalid GPA score. GPA will be from 0 to 4")
+                                sys.exit()
+                        except ValueError as err:
+                            print(err)
                         student_dict = vars(change_student)
                         student_dict["probation"] = change_student.on_probation()
                         students.remove(student)  # Remove the old student object
@@ -63,8 +76,5 @@ def user_options():
                           
         if choice == 3:
             delete_function()
-        
-        if choice == 4:    
-            print("Thank you")
         
 user_options()
