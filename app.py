@@ -1,5 +1,7 @@
 from student import Student
-from delete_student import delete_student
+from delete_function import delete_function
+from updated_student import Update_student
+
 import json
 
 option = (
@@ -21,7 +23,7 @@ def user_options():
             print(err)    
             
         if choice == 1:     
-            new_student = Student(input("Please enter the student name: "), input("Please enter the student major: "), input("Please enter the student GPA: "))
+            new_student = Student(input("Please enter the student name: "), input("Please enter the student major: "), int(input("Please enter the student GPA: ")))
             with open("student.json", "r+") as file:
                 data = json.load(file)
                 students = data["student"]
@@ -32,37 +34,35 @@ def user_options():
                 file.seek(0)
                 json.dump(data, file, indent=4)
                 file.truncate()
-     
+                file.close()
+                print("Successfully added new student!")
         if choice == 2:
-            student_name = input("Please enter a student name that you want to change information: ")
-            update_line = []
+            student_name = Update_student(input("Please enter a student name that you want to change information: "))
             found_student = False
-            with open("student.json", "r") as file:
-                for line in file:
-                    if line.startswith("Name: " + student_name):
-                        student = Student(input("Please enter the updated student name: "), input("Please enter the updated student major: "), input("Please enter the updated student GPA: "))
-                        update_line.append("Name: " + str(student.name) + "\n")
-                        update_line.append("Major: " + str(student.major) + "\n")
-                        update_line.append("GPA: " + str(student.gpa) + "\n")
-                        update_line.append("On Probation: " + str(student.on_probation()) + "\n\n")
+            with open("student.json", "r+") as file:
+                data = json.load(file)
+                students = data["student"]
+                for student in students:
+                    if student["name"] == student_name:
+                        change_student = Student(input("Please enter the updated student name: "), input("Please enter the updated student major: "), int(input("Please enter the updated student GPA: ")))
+                        student_dict = vars(change_student)
+                        student_dict["probation"] = change_student.on_probation()
+                        students.remove(student)  # Remove the old student object
+                        students.append(student_dict)
                         found_student = True
-                        # skip until the next blank line
-                        for line in file:
-                            if line == '\n':
-                                break
-                    else:
-                        update_line.append(line)
-                   
-            if found_student:
-                with open("student.json", "w") as file:
-                    file.writelines(update_line)
-                    print("Successfully updated")
+                        break    
+                        
+                if found_student:
+                    file.seek(0)
+                    json.dump(data, file, indent=4)
+                    file.truncate()
                     file.close()
-            else:
-                print("Failed to update or student not found.")      
+                    print("Successfully updated student")
+                else:
+                    print("Failed to update or student not found.")      
                           
         if choice == 3:
-            delete_student()
+            delete_function()
         
         if choice == 4:    
             print("Thank you")

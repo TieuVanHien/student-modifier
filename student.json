@@ -1,12 +1,6 @@
 {
     "student": [
         {
-            "name": "Johnny",
-            "major": "Information Technology",
-            "gpa": 3.6,
-            "probation": false
-        },
-        {
             "name": "Van Hien Tieu",
             "major": "Information Technology",
             "gpa": 3.0,
@@ -19,16 +13,34 @@
             "probation": false
         },
         {
-            "name": "Bob",
-            "major": "BA",
-            "gpa": "3.6",
+            "name": "Nho",
+            "major": "Banking",
+            "gpa": "3.5",
             "probation": false
         },
         {
-            "name": "Sue",
-            "major": "Finance",
+            "name": "Bob",
+            "major": "BA",
+            "gpa": "3.0",
+            "probation": false
+        },
+        {
+            "name": "Jenny",
+            "major": "Musical",
+            "gpa": "4.0",
+            "probation": false
+        },
+        {
+            "name": "John",
+            "major": "IT",
             "gpa": "3.2",
             "probation": false
-        }
+        },
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
     ]
 }
