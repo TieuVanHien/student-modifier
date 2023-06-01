@@ -31,12 +31,6 @@
             "probation": false
         },
         {
-            "name": "John",
-            "major": "IT",
-            "gpa": "3.2",
-            "probation": false
-        },
-        {
             "name": "Lisa",
             "major": "Chemical Lab",
             "gpa": "3.5",
@@ -49,9 +43,9 @@
             "probation": true
         },
         {
-            "name": "Rush",
-            "major": "BA",
-            "gpa": 2.6,
+            "name": "Kai",
+            "major": "Chemical",
+            "gpa": 2.0,
             "probation": false
         }
     ]

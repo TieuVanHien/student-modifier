@@ -44,7 +44,7 @@ def user_options():
                 file.close()
                 print("Successfully added new student!")
         if choice == 2:
-            student_name = Update_student(input("Please enter a student name that you want to change information: "))
+            student_name = input("Please enter a student name that you want to change information: ")
             found_student = False
             with open("student.json", "r+") as file:
                 data = json.load(file)
@@ -53,7 +53,7 @@ def user_options():
                     if student["name"] == student_name:
                         try:     
                             change_student = Student(input("Please enter the updated student name: "), input("Please enter the updated student major: "), float(input("Please enter the updated student GPA: ")))
-                            if new_student.gpa < 0 or new_student.gpa > 4:
+                            if change_student.gpa < 0 or change_student.gpa > 4:
                                 print("Invalid GPA score. GPA will be from 0 to 4")
                                 sys.exit()
                         except ValueError as err:
